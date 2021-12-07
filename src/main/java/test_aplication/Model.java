@@ -16,64 +16,61 @@ public class Model implements Repository {
     private String queryShop = "SELECT id, product, price,amount  FROM shop WHERE id = ";
     private String queryCard = "SELECT id,card_id FROM card_list WHERE card_id = ";
 
-
-
-
-        public void printOrder (ResultSet resultSet) throws SQLException {
-            while (resultSet.next()) {
-                int id = resultSet.getInt(ID);
-                String product = resultSet.getString(PRODUCT);
-                int price = resultSet.getInt(PRICE);
-                System.out.print(product + "  " + price / 100.0);
-            }
-
+    public void printOrder(ResultSet resultSet) throws SQLException {
+        while (resultSet.next()) {
+            int id = resultSet.getInt(ID);
+            String product = resultSet.getString(PRODUCT);
+            int price = resultSet.getInt(PRICE);
+            System.out.print(product + "  " + price / 100.0);
         }
 
-        public Integer getAmount (ResultSet resultSet) throws SQLException {
-            int result;
-            for (result = 0; resultSet.next(); result = resultSet.getInt(AMOUNT)) {
-            }
-            return result;
-        }
-
-        public Integer getId (ResultSet resultSet) throws SQLException {
-            int result;
-            for (result = 0; resultSet.next(); result = resultSet.getInt(ID)) {
-            }
-            return result;
-        }
-
-        public String getQueryShop () {
-            return this.queryShop;
-        }
-
-        public Integer getPrice (ResultSet resultSet) throws SQLException {
-            int result;
-            for (result = 0; resultSet.next(); result = resultSet.getInt(PRICE)) {
-            }
-            return result;
-        }
-
-        public String getQueryCard () {
-            return this.queryCard;
-        }
-
-        public Integer getCard (ResultSet resultSet) throws SQLException {
-            int result;
-            for (result = 0; resultSet.next(); result = resultSet.getInt(CARD)) {
-            }
-            return result;
-        }
-
-        public String getUrl () {
-            return URL;
-        }
-
-        public String getUser () {
-            return USER;
-        }
-
-        public String getPassword () {
-            return PASSWORD;
-        }
     }
+
+    public Integer getAmount(ResultSet resultSet) throws SQLException {
+        int result;
+        for (result = 0; resultSet.next(); result = resultSet.getInt(AMOUNT)) {
+        }
+        return result;
+    }
+
+    public Integer getId(ResultSet resultSet) throws SQLException {
+        int result;
+        for (result = 0; resultSet.next(); result = resultSet.getInt(ID)) {
+        }
+        return result;
+    }
+
+    public String getQueryShop() {
+        return this.queryShop;
+    }
+
+    public Integer getPrice(ResultSet resultSet) throws SQLException {
+        int result;
+        for (result = 0; resultSet.next(); result = resultSet.getInt(PRICE)) {
+        }
+        return result;
+    }
+
+    public String getQueryCard() {
+        return this.queryCard;
+    }
+
+    public Integer getCard(ResultSet resultSet) throws SQLException {
+        int result;
+        for (result = 0; resultSet.next(); result = resultSet.getInt(CARD)) {
+        }
+        return result;
+    }
+
+    public String getUrl() {
+        return URL;
+    }
+
+    public String getUser() {
+        return USER;
+    }
+
+    public String getPassword() {
+        return PASSWORD;
+    }
+}
