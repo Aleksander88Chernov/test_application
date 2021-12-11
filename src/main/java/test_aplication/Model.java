@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 public class Model implements Repository {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/testdb";
+    private static final String URL = "jdbc:mysql://localhost:3306/warehouse";
     private static final String USER = "root";
     private static final String PASSWORD = "root";
     private static final String ID = "id";
@@ -14,7 +14,7 @@ public class Model implements Repository {
     private static final String AMOUNT = "amount";
     private static final String CARD = "card_id";
     private String queryShop = "SELECT id, product, price,amount  FROM shop WHERE id = ";
-    private String queryCard = "SELECT id,card_id FROM card_list WHERE card_id = ";
+    private String queryCard = "SELECT card_id FROM card_list where card_id = ";
 
     public void printOrder(ResultSet resultSet) throws SQLException {
         while (resultSet.next()) {
@@ -55,8 +55,9 @@ public class Model implements Repository {
         return this.queryCard;
     }
 
+
     public Integer getCard(ResultSet resultSet) throws SQLException {
-        int result;
+        Integer result;
         for (result = 0; resultSet.next(); result = resultSet.getInt(CARD)) {
         }
         return result;

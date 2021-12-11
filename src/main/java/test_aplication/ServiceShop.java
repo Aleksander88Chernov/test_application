@@ -18,7 +18,6 @@ public class ServiceShop   {
 
     DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
-
     public void putMap(HashMap<String, Integer> map, String[] array) {
         for(int i = 0; i < array.length; i += 2) {
             map.put(array[i], Integer.parseInt(array[i + 1]));
@@ -33,7 +32,8 @@ public class ServiceShop   {
         ResultSet rsId;
         ResultSet rsPrice;
         int sums = 0;
-        int card = repository.getCard(resultSet);
+
+        Integer card = repository.getCard(resultSet);
 
 
         for (Map.Entry<String, Integer> pair : map.entrySet()) {
@@ -64,6 +64,7 @@ public class ServiceShop   {
                 sums = sums + sum;
             }
         }
+
         System.out.println("-------------------------------------------");
             if (card != 0) {
                 System.out.println("Скидка : " + decimalFormat.format((sums * 0.1) / 100));
@@ -79,15 +80,10 @@ public class ServiceShop   {
         return str.split("[^0-9]");
     }
 
-    public String getUrl() {
-        return repository.getUrl();
-    }
 
-    public String getUser() {
-        return repository.getUser();
-    }
+    public String getUrl() {return repository.getUrl();}
 
-    public String getPassword() {
-        return repository.getPassword();
-    }
+    public String getUser() {return repository.getUser();}
+
+    public String getPassword() {return repository.getPassword();}
 }

@@ -24,6 +24,7 @@ public interface Repository {
         Integer getId(ResultSet resultSet) throws SQLException;
 
         Integer getCard(ResultSet resultSet) throws SQLException;
-    }
+}
+
 
 
